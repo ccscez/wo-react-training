@@ -16,21 +16,23 @@ export default class ProductItem extends React.Component {
     }
     render() {
         return (
-            <Card className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <CardImg top width="100%"
-                    src="https://placeholdit.imgix.net/~text?txtsize=33&txt=354%C3%97180&w=354&h=180"
-                    alt="Card image cap" />
-                <CardBlock>
-                    <CardTitle>{this.props.product.name}</CardTitle>
-                    <CardSubtitle>{Formatter.money(this.props.product.price)}</CardSubtitle>
-                    <CardText>{this.props.product.description}</CardText>
-                </CardBlock>
-                <CardFooter>
-                    <Button color="primary"
-                        data-product-id={this.props.product.id}
-                        onClick={this.handleAddProduct}>Add</Button>
-                </CardFooter>
-            </Card>
+            <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <Card>
+                    <CardImg top width="100%"
+                        src="https://placeholdit.imgix.net/~text?txtsize=33&txt=354%C3%97180&w=354&h=180"
+                        alt="Card image cap" />
+                    <CardBlock>
+                        <CardTitle>{this.props.product.name}</CardTitle>
+                        <CardSubtitle>{Formatter.money(this.props.product.price)}</CardSubtitle>
+                        <CardText>{this.props.product.description}</CardText>
+                    </CardBlock>
+                    <CardFooter>
+                        <Button color="primary"
+                            data-product-id={this.props.product.id}
+                            onClick={this.handleAddProduct}>Add</Button>
+                    </CardFooter>
+                </Card>
+            </div>
         );
     }
 }
