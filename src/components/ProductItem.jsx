@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Card, CardImg, CardText, CardBlock,
     CardTitle, CardSubtitle, CardFooter, Button} from 'reactstrap';
-import PropTypes from 'prop-types';
+import ShoppingCartActions from '../actions/ShoppingCartActions'
+import accounting from 'accounting';
+import Formatter from '../libs/Formatter';
 
 export default class ProductItem extends React.Component {
     constructor(props) {
@@ -9,7 +12,7 @@ export default class ProductItem extends React.Component {
         this.handleAddProduct = this.handleAddProduct.bind(this);
     }
     handleAddProduct() {
-        this.props.handleAddProduct(this.props.product);
+        ShoppingCartActions.addProduct(this.props.product)
     }
     render() {
         return (
@@ -19,7 +22,7 @@ export default class ProductItem extends React.Component {
                     alt="Card image cap" />
                 <CardBlock>
                     <CardTitle>{this.props.product.name}</CardTitle>
-                    <CardSubtitle>{this.props.product.price} $</CardSubtitle>
+                    <CardSubtitle>{Formatter.money(this.props.product.price)}</CardSubtitle>
                     <CardText>{this.props.product.description}</CardText>
                 </CardBlock>
                 <CardFooter>
