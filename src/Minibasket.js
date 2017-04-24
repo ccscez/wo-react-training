@@ -1,5 +1,6 @@
 import React from 'react';
-import { Badge } from 'reactstrap';
+import {Badge} from 'reactstrap';
+import PropTypes from 'prop-types';
 
 export default class Minibasket extends React.Component {
     render() {
@@ -21,6 +22,11 @@ export default class Minibasket extends React.Component {
                     )
                 }
             </div>
-        )
+        );
     }
 }
+
+Minibasket.propTypes = {
+    totalPrice: PropTypes.number,
+    productList: PropTypes.array
+};
