@@ -26,16 +26,23 @@ let mockData = [
     }
 ];
 
+// import axios from 'axios';
+
 class ProductSource {
     fetch() {
         // returning a Promise because that is what fetch does.
-        return new Promise(function (resolve) {
-            // simulate an asynchronous action where data is fetched on
-            // a remote server somewhere.
-            setTimeout(function () {
-                // resolve with some mock data
+        return new Promise(function (resolve, reject) {
+            // axios.get('http://www.webon-thailand.com/recruit/products.json')
+            // axios.get('https://jsonplaceholder.typicode.com/posts')
+            //     .then((response) => {
+            //         resolve(response.data);
+            //     })
+            //     .catch((error) => {
+            //         reject(error.message);
+            //     });
+            setTimeout(() => {
                 resolve(mockData);
-            }, 250);
+            }, 1000);
         });
     }
 }

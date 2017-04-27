@@ -16,17 +16,16 @@ class ShoppingCartStore {
         let total = 0;
         products.forEach((addedProduct) => {
             if (addedProduct.id === product.id) {
-                addedProduct.quantity = addedProduct.quantity + 1;
+                addedProduct.quantity += 1;
                 isExists = true;
             }
+            total += (addedProduct.quantity * addedProduct.price);
         });
         if (!isExists) {
             product.quantity = 1;
+            total += (product.quantity * product.price);
             products.push(product);
         }
-        products.forEach((prod) => {
-            total = total + (prod.quantity * prod.price);
-        });
 
         this.products = products;
         this.total = total;

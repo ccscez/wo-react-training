@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {Badge, Table} from 'reactstrap';
 import Formatter from '../libs/Formatter';
-import ShoppingCartStore from '../stores/ShoppingCartStore'
-import ShoppingCartActions from '../actions/ShoppingCartActions'
+import ShoppingCartStore from '../stores/ShoppingCartStore';
 
 export default class Minibasket extends React.Component {
     constructor(props){
@@ -57,8 +56,3 @@ export default class Minibasket extends React.Component {
         );
     }
 }
-
-Minibasket.propTypes = {
-    totalPrice: PropTypes.number,
-    productList: PropTypes.array
-};

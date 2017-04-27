@@ -12,6 +12,7 @@ class ProductActions {
         return (dispatch) => {
             // we dispatch an event here so we can have "loading" state.
             dispatch();
+
             ProductSource.fetch()
                 .then((products) => {
                     // we can access other actions within our action through `this.actions`

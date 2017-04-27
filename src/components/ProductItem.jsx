@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Card, CardImg, CardText, CardBlock,
     CardTitle, CardSubtitle, CardFooter, Button} from 'reactstrap';
 import ShoppingCartActions from '../actions/ShoppingCartActions'
-import accounting from 'accounting';
 import Formatter from '../libs/Formatter';
 
 export default class ProductItem extends React.Component {
@@ -15,6 +14,9 @@ export default class ProductItem extends React.Component {
         ShoppingCartActions.addProduct(this.props.product)
     }
     render() {
+
+        let { id, name, price, description } = this.props.product;
+
         return (
             <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <Card>
@@ -22,13 +24,13 @@ export default class ProductItem extends React.Component {
                         src="https://placeholdit.imgix.net/~text?txtsize=33&txt=354%C3%97180&w=354&h=180"
                         alt="Card image cap" />
                     <CardBlock>
-                        <CardTitle>{this.props.product.name}</CardTitle>
-                        <CardSubtitle>{Formatter.money(this.props.product.price)}</CardSubtitle>
-                        <CardText>{this.props.product.description}</CardText>
+                        <CardTitle>{name}</CardTitle>
+                        <CardSubtitle>{Formatter.money(price)}</CardSubtitle>
+                        <CardText>{description}</CardText>
                     </CardBlock>
                     <CardFooter>
                         <Button color="primary"
-                            data-product-id={this.props.product.id}
+                            data-product-id={id}
                             onClick={this.handleAddProduct}>Add</Button>
                     </CardFooter>
                 </Card>
@@ -38,6 +40,5 @@ export default class ProductItem extends React.Component {
 }
 
 ProductItem.propTypes = {
-    handleAddProduct: PropTypes.func,
-    product: PropTypes.object
+    product: PropTypes.object.isRequired
 };

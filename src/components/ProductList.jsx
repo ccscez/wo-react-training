@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ProductStore from '../stores/ProductStore';
 import ProductActions from '../actions/ProductActions';
 import ProductItem from './ProductItem';
@@ -8,7 +8,7 @@ export default class ProductList extends React.Component {
     constructor(props) {
         super(props);
         this.onChange = this.onChange.bind(this);
-        this.state    = ProductStore.getState();
+        this.state = ProductStore.getState();
     }
     // You should initialize state in the constructor when using ES6 classes,
     // and define the getInitialState method when using React.createClass
@@ -30,14 +30,17 @@ export default class ProductList extends React.Component {
     render() {
         return (
             <div className="row product-list">
-                {this.state.products.map((product) =>
-                    <ProductItem key={product.id} product={product}/>
-                )}
+                {this.state.loading &&
+                    <h1>Loading...</h1>}
+
+                {this.state.errorMessage &&
+                    <h1>{this.state.errorMessage}</h1>}
+
+                {this.state.products.length > 0 &&
+                    this.state.products.map((product) =>
+                        <ProductItem key={product.id} product={product}/>
+                    )}
             </div>
         );
     }
 }
-
-ProductList.propTypes = {
-    productList: PropTypes.array
-};

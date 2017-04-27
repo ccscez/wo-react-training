@@ -5,11 +5,6 @@ import ProductList from './components/ProductList';
 import './App.css';
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
         <div className="body-wrapper">
