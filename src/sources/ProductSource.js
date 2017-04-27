@@ -41,7 +41,14 @@ class ProductSource {
             //         reject(error.message);
             //     });
             setTimeout(() => {
-                resolve(mockData);
+                // Return a random number between 1 and 10 for testing success and error response
+                let randomNumber = Math.floor((Math.random() * 10) + 1);
+                if (randomNumber >= 3) {
+                    resolve(mockData);
+                }
+                else {
+                    reject("Internal server error");
+                }
             }, 1000);
         });
     }

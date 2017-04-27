@@ -24,7 +24,8 @@ class ProductStore {
         this.products = [];
     }
     handleProductsFailed(errorMessage) {
-        this.errorMessage = errorMessage;
+        this.errorMessage = `Error: ${errorMessage}`;
+        this.loading = false;
     }
 }
 
