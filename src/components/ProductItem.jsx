@@ -8,9 +8,9 @@ import Formatter from '../libs/Formatter';
 export default class ProductItem extends React.Component {
     constructor(props) {
         super(props);
-        this.handleAddProduct = this.handleAddProduct.bind(this);
+        // this.handleAddProduct = this.handleAddProduct.bind(this);
     }
-    handleAddProduct() {
+    handleAddProduct = () => {
         ShoppingCartActions.addProduct(this.props.product)
     }
     render() {
